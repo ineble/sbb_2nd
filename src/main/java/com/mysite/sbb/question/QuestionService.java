@@ -40,7 +40,7 @@ public class QuestionService {
     }
     public Page<Question> getList(int page){
         List<Sort.Order> sorts = new ArrayList<>();
-        sorts.add(Sort.Order.asc("createDate"));
+        sorts.add(Sort.Order.desc("id"));
         Pageable pageable = PageRequest.of(page,10);
         return  this.questionRepository.findAll(pageable);
     }
