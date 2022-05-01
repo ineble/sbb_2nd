@@ -1,8 +1,11 @@
 package com.mysite.sbb.user;
 
+import com.mysite.sbb.question.DataNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -20,4 +23,14 @@ public class UserService {
         this.userRepository.save(user);
         return user;
     }
+    public SiteUser getUser(String username){
+        Optional<SiteUser> siteUser = this.userRepository.findByusername(username);
+        if(siteUser.isPresent()){
+            return siteUser.get();
+        }else{
+            throw new DataNotFoundException("유저가 발견되지 않습니다.");
+        }
+    }
+
+
 }
