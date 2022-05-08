@@ -75,7 +75,6 @@
             </li>
         </ul>
     </div>
-    <a th:href="@{/question/create}" class="btn btn-primary">질문 등록하기</a>
     <!-- 페이징처리 끝 -->
     <form th:action="@{/question/list}" method="get" id="searchForm">
         <input type="hidden" id="kw" name="kw" th:value="${kw}">
