@@ -63,7 +63,28 @@ ADD COLUMN modify_date DATETIME AFTER create_date;
 ALTER TABLE answer
 ADD COLUMN modify_date DATETIME AFTER create_date;
 
+SELECT * FROM answer_voter;
+
+
+# Question_voter 테이블 추가
+CREATE TABLE question_voter(
+    id BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+    question_id BIGINT UNSIGNED NOT NULL ,
+    voter_id BIGINT UNSIGNED NOT NULL
+);
+CREATE TABLE answer_voter(
+    id BIGINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+    answer_id BIGINT UNSIGNED NOT NULL ,
+    voter_id BIGINT UNSIGNED NOT NULL
+);
+INSERT INTO question_voter(question_id, voter_id) VALUES (2,1);
+
+SELECT * FROM question_voter;
+SELECT * FROM answer_voter;
+
 SELECT * FROM answer;
 SELECT * FROM question;
 SELECT * FROM site_user;
+
+
 
